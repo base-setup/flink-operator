@@ -1,0 +1,16 @@
+flink-kubernetes-operator:
+  enabled: true
+#  image:
+#    repository:
+  replicas: 1
+  strategy:
+    type: Recreate
+  # Configuration for tls
+  tls:
+    create: false
+    secretName: flink-operator-cert
+    secretKeyRef:
+      name: operator-certificate-password
+      key: password
+  serviceAccount:
+    create: true
